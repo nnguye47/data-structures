@@ -39,7 +39,6 @@ define([
       });
 
       it('reports a size of 2 after adding two items', function() {
-        debugger;
         stack.push('a');
         stack.push('b');
         expect(stack.size()).to.equal(2);
