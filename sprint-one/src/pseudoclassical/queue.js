@@ -1,41 +1,40 @@
 var Queue = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
+  this.storage = {};
+  this.top = 0; //2, 3
+  this.stackSize = 0;
+  this.bottom = 0;
+
 };
 
-Queue.prototype.size = function() {
-  var keys = Object.keys(this);
 
-  return keys.length;
+Queue.prototype.size = function() {
+  //return top to get the size
+  return this.stackSize;
 };
 
 Queue.prototype.enqueue = function(string) {
-  //get the array of keys referencing
-  var keys = Object.keys(this);
-  //get the element at the last index
-  var lastElement = keys[keys.length - 1];
-  //create a key using the lst element + 1 with a value of string
-  this[lastElement + 1] = string;
-
-  //retunr length of the array of keys
-  return keys.length;
+  //add one to top
+  this.top++;
+  this.stackSize++;
+  //create a property with key = top and value = string
+  this.storage[this.top] = string;
 };
 
 Queue.prototype.dequeue = function() {
-  //get the array of keys
-  var keys = Object.keys(this);
-  //get the first element
-  var firstElement = keys[0];
-  //create a variable saving the value of the key that matches the first element
-  var value = this[firstElement];
+  if (this.stackSize === 0) {
+    return;
+  }
+  this.bottom++;
+  //save the value of the first key-value pair
+  var value = this.storage[this.bottom]; //string
+  //delete the key value pair
+  delete this.storage[this.bottom];
 
-
-  //delete the key that matches the first element
-  delete this[firstElement];
+  this.stackSize--;
   //return the saved value
   return value;
 };
-
-var Final = new Queue();
 
 

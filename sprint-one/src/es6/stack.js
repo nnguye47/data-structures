@@ -2,40 +2,32 @@ class Stack {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
   constructor() {
+    this.storage = {};
+    this.top = 0;
   }
 
   size() {
-    //get array of keys
-    var keys = Object.keys(this);
-    //return length of the array
-    return keys.length;
+    return this.top;
   }
 
   push(string) {
-    //get array of keys
-    var keys = Object.keys(this);
-    //get the last element in the array
-    var lastElement = keys[keys.length - 1];
+    this.top++;
 
-    //create a key with (last element + 1) and a value of string
-    this[lastElement + 1] = string;
-    //return array length
-    return keys.length;
+    this.storage[this.top] = string;
   }
 
   pop() {
-    //get array of keys
-    var keys = Object.keys(this);
-    //get the last element in the array
-    var lastElement = keys[keys.length - 1];
-    //save the value of the key that matches the last element from the array
-    var value = this[lastElement];
-    //delete that key-value pair
-    delete this[lastElement];
-    //return saved value
-    return value;
+    if (this.top === 0) {
+      return;
+    }
+
+    //save the value of the key that is to be deleted
+    var savedValue = this.storage[this.top];
+    delete this.storage[this.top];
+    this.top--;
+    return savedValue;
   }
 
 }
 
-var Final = new Stack();
+
