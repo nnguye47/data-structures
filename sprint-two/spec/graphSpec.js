@@ -46,6 +46,7 @@ describe('graph', function() {
   });
 
   it('should remove edges between nodes when a node is removed', function() {
+
     graph.addNode(4);
     graph.addNode(5);
     graph.addEdge(5, 4);
@@ -58,6 +59,7 @@ describe('graph', function() {
     var connectToFive = function(item) {
       graph.addEdge(item, 5);
     };
+
     graph.addNode(5);
     graph.addNode(2);
     graph.addNode(1);
