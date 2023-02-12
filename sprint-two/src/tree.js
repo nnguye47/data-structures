@@ -33,7 +33,6 @@ treeMethods.contains = function(target) {
   if (this.children.length !== 0) {
     var result = false;
     for (var i = 0; i <= this.children.length - 1; i++) {
-      console.log('child obj: ', this.children[i]);
       result = this.children[i].contains(target);
       if (result === true) {
         return true;

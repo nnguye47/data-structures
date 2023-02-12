@@ -16,7 +16,6 @@ Graph.prototype.addNode = function(node) {
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
-  console.log(this.storage[node]);
   //check for the key that equals node in the object
   //if key does not equal undefined
   if (this.storage[node] !== undefined) {
@@ -24,9 +23,9 @@ Graph.prototype.contains = function(node) {
   } else {
     return false;
   }
-    //return true;
+  //return true;
   //else
-    //return undefined
+  //return undefined
 };
 
 // Removes a node from the graph.
@@ -35,7 +34,7 @@ Graph.prototype.removeNode = function(node) {
   delete this.storage[node];
 
   //for every key in storage (every node in the graph)
-    //delete the key that matches the value of node
+  //delete the key that matches the value of node
   for (var keys in this.storage) {
     delete this.storage[keys][node];
   }
@@ -45,7 +44,6 @@ Graph.prototype.removeNode = function(node) {
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
 Graph.prototype.hasEdge = function(fromNode, toNode) {
   //if the vale at this.storage[fromNode] has a value of toNode
-  console.log(this.storage[fromNode][toNode]);
 
   if (this.storage[fromNode][toNode] === toNode) {
     return true;
@@ -84,7 +82,7 @@ Graph.prototype.forEachNode = function(cb) {
 
 //the cb function
 //var connectToFive = function(item) {
-  //graph.addEdge(item, 5);
+//graph.addEdge(item, 5);
 //};
 /*
  * Complexity: What is the time complexity of the above functions?
